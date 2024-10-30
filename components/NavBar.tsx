@@ -4,15 +4,16 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const links = [
-  { name: "Home", href: "/" },
+  { name: "New", href: "/new" },
   {
-    name: "Clothing",
-    href: "/clothing",
+    name: "Shop",
+    href: "/shop",
   },
+  { name: "Accessories", href: "/accessories" },
   { name: "About", href: "/about" },
 ];
 
-export default function NavLinks() {
+export default function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {

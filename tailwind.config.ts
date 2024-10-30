@@ -18,6 +18,11 @@ const config: Config = {
           600: '#2F6FEB',
         },
       },
+      backgroundImage: {
+        'card': "url('/model1.jpg')",
+        'arrow-right': "url('/arrow-right-solid.svg')",
+        'arrow-left': "url('/arrow-left-solid.svg')"
+      }
     },
     keyframes: {
       shimmer: {

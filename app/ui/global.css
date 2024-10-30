@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  display: grid;
+  min-height: 100dvh;
+  grid-template-rows: auto 1fr auto;
+}
+
 input[type="number"] {
   -moz-appearance: textfield;
   appearance: textfield;
@@ -15,4 +21,20 @@ input[type="number"]::-webkit-inner-spin-button {
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+/* Cards */
+
+.details-card {
+  background: linear-gradient(
+    225deg,
+    rgba(178, 247, 99, 0.1) 17%,
+    #26ab3f1a 74%
+  );
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.shadow {
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
 }
