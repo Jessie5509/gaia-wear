@@ -1,7 +1,72 @@
+"use client";
 import Image from "next/image";
-import Card from "@/components/Card";
+import Carousel from "../components/Carousel";
+import { React, useEffect, useState } from "react";
+import { getNewClothes } from "./lib/utils";
 
 export default function Page() {
+  const [clothes, setClothes] = useState([
+    {
+      color: "Beige",
+      size: "Big",
+      price: 20.0,
+    },
+    {
+      color: "White",
+      size: "Small",
+      price: 60.0,
+    },
+    {
+      color: "Olive",
+      size: "G",
+      price: 30.0,
+    },
+    {
+      color: "Gray",
+      size: "M",
+      price: 30.0,
+    },
+    {
+      color: "Green",
+      size: "G",
+      price: 30.0,
+    },
+    {
+      color: "Black",
+      size: "M",
+      price: 30.0,
+    },
+    {
+      color: "Blue",
+      size: "XL",
+      price: 30.0,
+    },
+    {
+      color: "Red",
+      size: "S",
+      price: 30.0,
+    },
+  ]);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const itemsToShow = 5;
+  const totalSlides = clothes.length;
+
+  const handleArrowNext = () => {
+    if (currentSlide < totalSlides - itemsToShow) {
+      setCurrentSlide(currentSlide + 1);
+    }
+  };
+
+  const handleArrowPrev = () => {
+    if (currentSlide > 0) {
+      setCurrentSlide(currentSlide - 1);
+    }
+  };
+
+  const handleSlideChange = (newIndex) => {
+    setCurrentSlide(newIndex);
+  };
+
   return (
     <main className="flex min-h-screen flex-col">
       <section className="flex shrink-0">
@@ -24,14 +89,26 @@ export default function Page() {
             wardrobe
           </h3>
           <div className="flex justify-center items-center gap-2">
-            <button className="rounded-full bg-gray-400 bg-arrow-left bg-no-repeat bg-center w-[2rem] h-[2rem] p-1"></button>
-            <button className="rounded-full bg-gray-400 bg-arrow-right bg-no-repeat bg-center w-[2rem] h-[2rem] p-1"></button>
+            <button
+              aria-label="Previous Slide"
+              className="disabled:bg-gray-300 rounded-full bg-gray-400 bg-arrow-left bg-no-repeat bg-center w-[2rem] h-[2rem] p-1"
+              onClick={handleArrowPrev}
+              disabled={currentSlide === 0}
+            ></button>
+            <button
+              aria-label="Next Slide"
+              className="disabled:bg-gray-300 rounded-full bg-gray-400 bg-arrow-right bg-no-repeat bg-center w-[2rem] h-[2rem] p-1"
+              onClick={handleArrowNext}
+              disabled={currentSlide === totalSlides - itemsToShow}
+            ></button>
           </div>
         </article>
-        <article className="flex flex-row items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
-          <Card />
-          {/* big filter clothes cards like pantee */}
-        </article>
+        {/* <Carousel
+          products={clothes}
+          currentSlide={currentSlide}
+          itemsToShow={itemsToShow}
+          onSlideChange={handleSlideChange}
+        /> */}
       </section>
       <section className="bg-[#8ca87c]">
         <header className="text-center text-5xl m-10">

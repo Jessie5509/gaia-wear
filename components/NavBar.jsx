@@ -33,7 +33,7 @@ export default function NavBar() {
 
   return (
     <nav
-      className={`flex flex-row w-full bg-transparent fixed hover:bg-white items-center py-2 transition-colors duration-300 ${
+      className={`flex flex-row w-full bg-transparent fixed hover:bg-white items-center py-2 transition-colors duration-300 z-[1] ${
         isScrolled ? "bg-white" : ""
       }`}
     >
@@ -43,7 +43,7 @@ export default function NavBar() {
             <Link
               key={link.name}
               href={link.href}
-              className="flex h-[78px] items-center justify-center gap-2 bg-transparent text-sm uppercase tracking-wider md:flex-none md:justify-start md:p-2 md:px-3"
+              className="flex h-[78px] items-center justify-center gap-2 bg-transparent text-sm uppercase text-black tracking-wider md:flex-none md:justify-start md:p-2 md:px-3"
             >
               <p className="hidden md:block">{link.name}</p>
             </Link>

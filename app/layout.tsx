@@ -1,7 +1,8 @@
 import "./ui/global.css";
 import { raleway, exo2 } from "./ui/fonts";
-import NavBar from "@/components/NavBar";
-import Footer from "@/components/Footer";
+import React from "react";
+import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 
 export default function RootLayout({
   children,
@@ -11,7 +12,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <title>GaiaWear</title>
-      <body className={`${exo2.className} antialiased`}>
+      <body className={`${exo2.className} antialiased min-h-[100dvh]`}>
         <NavBar />
         {children}
         <Footer />
