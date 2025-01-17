@@ -14,7 +14,7 @@ export default async function CardDetails({ params }) {
     <main className="flex justify-evenly w-full min-h-screen p-6 mt-32">
       <section>
         <Image
-          // src={product.image_url}
+          src={product.image_url}
           width={540}
           height={860}
           alt={product.name}
@@ -30,9 +30,9 @@ export default async function CardDetails({ params }) {
         <article className="bg-black w-3 h-3 rounded-full"></article>
 
         <span>${product.price}</span>
-
         <span>{product.size}</span>
         <span>{product.material}</span>
+        <span>{product.category_name}</span>
         <button className="mt-5">
           <Button text={"Add to cart"} />
         </button>

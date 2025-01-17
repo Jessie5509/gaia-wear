@@ -110,24 +110,41 @@ export default function Page() {
           onSlideChange={handleSlideChange}
         /> */}
       </section>
-      <section className="bg-[#8ca87c]">
+      <section className="bg-beige-400">
         <header className="text-center text-5xl m-10">
           How Our Garments Heal Mother Earth
         </header>
         <div className="flex justify-center items-center flex-row m-10">
-          <article className="flex flex-col items-center w-[60rem] m-10">
-            <h3 className="text-xl text-black">
+          <article className="flex flex-col w-[60rem] m-10">
+            <h3 className="text-3xl text-black mb-4">
               Sustainability = Transparency
             </h3>
             <p className="text-lg text-black">
-              learn more The apparel industry creates a lot of trash—10.5
-              million tonnes per year, to be exact. We're helping divert some of
-              it from landfills, while conserving water and important resources,
-              too. By planting trees for every item purchased, we prove to the
-              world that sustainability can and should be as easy as putting on
-              a t-shirt. Here's a snapshot of the impact you've helped create so
+              The apparel industry creates a lot of trash—10.5 million tonnes
+              per year, to be exact. We're helping divert some of it from
+              landfills, while conserving water and important resources, too. By
+              planting trees for every item purchased, we prove to the world
+              that sustainability can and should be as easy as putting on a
+              t-shirt. Here's a snapshot of the impact you've helped create so
               far this year
             </p>
+            <div className="flex flex-row justify-center gap-16 m-8">
+              <div className="flex flex-col items-center">
+                <icon className="bg-trash bg-no-repeat bg-center w-[2rem] h-[2rem]"></icon>
+                <strong>200 MM g</strong>
+                <span>waste saved</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <icon className="bg-water-drop bg-no-repeat bg-center w-[2rem] h-[2rem]"></icon>
+                <strong>245 MM l</strong>
+                <span>water saved</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <icon className="bg-cloud bg-no-repeat bg-center w-[2rem] h-[2rem]"></icon>
+                <strong>1 MM kg</strong>
+                <span>CO2 saved</span>
+              </div>
+            </div>
           </article>
           <Image
             src="/sustainability.jpg"

@@ -1,110 +1,103 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-export default function Filter({ data, onApplyFilter }) {
-  const [activeTag, setActiveTag] = useState(["hat", "shoes"]);
-  const [filters, setFilters] = useState({
-    category: "",
-    color: "",
-    price: "",
-    size: "",
-    sort: "",
-  });
+export default function Filter({ categories, initialFilters }) {
+  const [filters, setFilters] = useState(initialFilters);
+
+  useEffect(() => {
+    setFilters(initialFilters);
+  }, [initialFilters]);
 
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      [name]: value,
-    }));
+    const updatedFilters = { ...filters, [name]: value };
+    setFilters(updatedFilters);
+    const searchParams = new URLSearchParams();
+
+    Object.entries(updatedFilters).forEach(([key, val]) => {
+      if (val) {
+        searchParams.set(key, val);
+      }
+    });
+
+    window.history.pushState(null, "", `?${searchParams.toString()}`);
   };
 
-  // const applyFilter = () => {
-  //   // Filtra los productos con base en los filtros seleccionados
-  //   onApplyFilter(filters);
-  // };
-  // const applyFilter = () => {
-  //   const filteredProducts = products.filter(
-  //     (product) => product.category === selectedCategory
-  //   );
-  //   return filteredProducts;
-  // };
+  const handleClearFilter = (key) => {
+    const updatedFilters = { ...filters, [key]: "" };
+    setFilters(updatedFilters);
+    const searchParams = new URLSearchParams();
+    Object.entries(updatedFilters).forEach(([key, val]) => {
+      if (val) {
+        searchParams.set(key, val);
+      }
+    });
+    window.history.pushState(null, "", `?${searchParams.toString()}`);
+  };
+
   return (
-    // <section className="w-[10dvw] mx-5">
-    //   <aside className="flex flex-col">
-    //     <label htmlFor="Category">Category</label>
-    //     <hr />
-    //     <ul>
-    //       {/* Buscar userouter y como hacer con vercel */}
-    //       <li>Hat</li>
-    //       <li>Jacket</li>
-    //     </ul>
-    //     <label htmlFor="Color">Color</label>
-    //     <input type="color" />
-    //     <label htmlFor="Price">Price</label>
-    //     <input type="range" />
-    //     <label htmlFor="Size">Size</label>
-    //     <select name="size">
-    //       Size
-    //       <option value="someOption">Some option</option>
-    //     </select>
-    //     <select name="sort">
-    //       Sort
-    //       <option value="sort">Sort</option>
-    //     </select>
-    //   </aside>
-    //   <article className="flex flex-row gap-3 mt-20">
-    //     {activeTag.map((tag, index) => (
-    //       <span
-    //         key={index}
-    //         className="w-fit border flex items-center justify-center content-center"
-    //       >
-    //         <button>{tag}ₓ</button>
-    //       </span>
-    //     ))}
-    //   </article>
-    //   <button onClick={applyFilter}>Apply Filters</button>
-    // </section>
-    <section className="w-[10dvw] mx-5 mt-20">
+    <section className="w-[15dvw] mx-5 mt-20">
       <aside className="flex flex-col">
         <label htmlFor="Category">Categories</label>
         <hr />
         <ul>
-          {data.map((category, index) => (
-            <li key={category.id}>
+          {categories.map((category) => (
+            <li key={category.id} className="mt-3">
               <input
                 type="radio"
                 name="category"
-                value={category}
+                value={category.name}
+                className="m-1 align-bottom"
                 onChange={handleFilterChange}
+                checked={filters.category === category.name}
               />
               {category.name}
             </li>
           ))}
         </ul>
-
+        <hr />
         <label htmlFor="Color">Color</label>
-        <input type="color" name="color" onChange={handleFilterChange} />
-
-        <label htmlFor="Price">Price</label>
-        <input
-          type="range"
-          name="price"
-          min="0"
-          max="1000"
+        <select
+          name="color"
+          value={filters.color}
           onChange={handleFilterChange}
-        />
-
+        >
+          <option value="">Select Color</option>
+          <option value="Beige">Beige</option>
+          <option value="Black">Black</option>
+          <option value="White">White</option>
+        </select>
+        <hr />
+        <label htmlFor="Price">Price</label>
+        <div className="relative">
+          <input
+            type="range"
+            name="price"
+            min="0"
+            max="1000"
+            value={filters.price}
+            onChange={handleFilterChange}
+          />
+          <span
+            className="absolute top-[-20px] left-0 right-0 text-center"
+            style={{
+              left: `calc(${(filters.price / 1000) * 100}% - 20px)`,
+            }}
+          >
+            ${filters.price}
+          </span>
+        </div>
+        <hr />
         <label htmlFor="Size">Size</label>
-        <select name="size" onChange={handleFilterChange}>
+        <select name="size" value={filters.size} onChange={handleFilterChange}>
           <option value="">Select Size</option>
           <option value="S">S</option>
           <option value="M">M</option>
           <option value="L">L</option>
         </select>
-
+        <hr />
         <label htmlFor="Sort">Sort</label>
-        <select name="sort" onChange={handleFilterChange}>
+        <select name="sort" value={filters.sort} onChange={handleFilterChange}>
           <option value="">Sort</option>
           <option value="price">Price</option>
           <option value="name">Name</option>
@@ -112,17 +105,20 @@ export default function Filter({ data, onApplyFilter }) {
       </aside>
 
       <article className="flex flex-row gap-3 mt-20">
-        {activeTag.map((tag, index) => (
-          <span
-            key={index}
-            className="w-fit border flex items-center justify-center content-center"
-          >
-            <button>{tag}ₓ</button>
-          </span>
-        ))}
+        {Object.entries(filters)
+          .filter(([_, value]) => value)
+          .map(([key, value]) => (
+            <span
+              key={key}
+              className="w-fit border flex items-center justify-center content-center"
+            >
+              <button onClick={() => handleClearFilter(key)}>
+                {value}
+                <span className="ml-2">×</span>
+              </button>
+            </span>
+          ))}
       </article>
-
-      {/* <button onClick={applyFilter}>Apply Filters</button> */}
     </section>
   );
 }

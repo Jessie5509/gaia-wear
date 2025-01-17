@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#8ca87c] flex flex-col justify-between">
-      <main className="p-7">
+    <footer className="bg-green-400 flex flex-col justify-between">
+      <main className="p-7 my-10">
         <section className="flex flex-row justify-around">
           <section className="flex flex-col">
             <span className="text-center font-extrabold">Support</span>

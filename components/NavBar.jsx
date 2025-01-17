@@ -55,6 +55,11 @@ export default function NavBar() {
           <Image src="/logo-3.png" width={100} height={100} alt="Logo" />
         </Link>
       </div>
+      <div className="absolute right-5 transform -translate-x-1/2">
+        <Link href={"/"}>
+          <Image src="/bag.svg" width={24} height={24} alt="Bag" />
+        </Link>
+      </div>
     </nav>
   );
 }
