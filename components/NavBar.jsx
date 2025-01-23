@@ -15,6 +15,7 @@ const links = [
 
 export default function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const storedCart = JSON.parse(localStorage.getItem("usercart")) || [];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,9 +56,14 @@ export default function NavBar() {
           <Image src="/logo-3.png" width={100} height={100} alt="Logo" />
         </Link>
       </div>
-      <div className="absolute right-5 transform -translate-x-1/2">
-        <Link href={"/"}>
+      <div className="relative right-5 transform -translate-x-1/2">
+        <Link href={"/cart"}>
           <Image src="/bag.svg" width={24} height={24} alt="Bag" />
+          <article className="flex justify-center absolute top-2 right-0 w-[0.7dvw] bg-green-900 border rounded-full">
+            {storedCart ? (
+              <p className="text-white text-[0.6rem]">{storedCart.length}</p>
+            ) : null}
+          </article>
         </Link>
       </div>
     </nav>

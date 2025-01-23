@@ -6,6 +6,8 @@ import {
   OrderItemsTable,
   CategoryField,
   ProductCategoryField,
+  Order,
+  CartItem,
 } from "./definitions";
 
 export async function fetchProducts() {
@@ -58,6 +60,19 @@ export async function fetchCartItems() {
   }
 }
 
+export async function addCartItems(items: CartItem) {
+  try {
+    const result = await sql`
+      INSERT INTO cart_items (product_id, quantity, total_price) 
+      VALUES (${items.product_id}, ${items.quantity}, ${items.total_price})
+      RETURNING *;
+    `;
+  } catch (error) {
+    console.error("Database Error:", error);
+    throw new Error("Failed to add item.");
+  }
+}
+
 export async function fetchOrders() {
   try {
     const data = await sql<OrdersTable>`SELECT * FROM orders`;
@@ -65,6 +80,19 @@ export async function fetchOrders() {
   } catch (error) {
     console.error("Database Error:", error);
     throw new Error("Failed to fetch orders.");
+  }
+}
+
+export async function addOrder(order: Order) {
+  try {
+    const result = await sql`
+      INSERT INTO orders (total_amount, order_status, created_at) 
+      VALUES (${order.total_amount}, ${order.order_status}, ${order.created_at})
+      RETURNING *;
+    `;
+  } catch (error) {
+    console.error("Database Error:", error);
+    throw new Error("Failed to add order.");
   }
 }
 

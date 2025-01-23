@@ -1,5 +1,6 @@
 import Image from "next/image";
-import Button from "../../../components/Button";
+import { notFound } from "next/navigation";
+import AddToCartButton from '../../cart/AddToCartButton'
 
 export default async function CardDetails({ params }) {
   const response = await fetch(
@@ -33,9 +34,9 @@ export default async function CardDetails({ params }) {
         <span>{product.size}</span>
         <span>{product.material}</span>
         <span>{product.category_name}</span>
-        <button className="mt-5">
-          <Button text={"Add to cart"} />
-        </button>
+        <article className="flex justify-center mt-5">
+           <AddToCartButton product={product} />
+        </article>
       </section>
     </main>
   );

@@ -27,9 +27,9 @@ export default async function ShopPage({ searchParams }) {
 
   return (
     <main className="min-h-[100dvh] mt-32">
-      <h3 className="text-5xl text-center">
-        Categoria / All clothes - Jackets - Hats - etc
-      </h3>
+      <header className="text-5xl text-center">
+      Meet the Product
+      </header>
       <section className="flex flex-row">
         <Filter
           categories={categories}
