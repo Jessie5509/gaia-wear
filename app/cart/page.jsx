@@ -9,9 +9,12 @@ export default async function CartContainer() {
   // }
   // const order = await orders.json();
   return (
-    <main className="flex flex-row justify-center mt-32 min-h-screen gap-4">
-      <Cart />
-      <Checkout />
+    <main className="mt-32 min-h-screen">
+      <header className="text-5xl flex justify-center">Checkout</header>
+      <section className="flex flex-row justify-center mt-10 min-h-screen gap-4">
+        <Cart />
+        <Checkout />
+      </section>
     </main>
   );
 }

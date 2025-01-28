@@ -15,7 +15,7 @@ const links = [
 
 export default function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const storedCart = JSON.parse(localStorage.getItem("usercart")) || [];
+  const [storedCart, setStoredCart] = useState([]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,7 +25,8 @@ export default function NavBar() {
         setIsScrolled(false);
       }
     };
-
+    const cart = JSON.parse(localStorage.getItem("usercart")) || [];
+    setStoredCart(cart);
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);

@@ -31,7 +31,7 @@ const config: Config = {
         trash: "url('/trash.svg')",
         "water-drop": "url('/water-drop.svg')",
         cloud: "url('/cloud.svg')",
-        bag: "url('/bag.svg')"
+        bag: "url('/bag.svg')",
       },
     },
     keyframes: {
