@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import Facebook from "../public/footer/fc.svg";
 import Instagram from "../public/footer/ig.svg";
 import Youtube from "../public/footer/yt.svg";
@@ -40,6 +41,14 @@ export default function Footer() {
                 FAQ
               </a>
             </article>
+            <article className="flex justify-center">
+              <Image
+                src="/footer/dark-logo.svg"
+                width={100}
+                height={100}
+                alt="Logo"
+              />
+            </article>
           </section>
 
           <section className="flex flex-col">
@@ -66,6 +75,18 @@ export default function Footer() {
               </a>
               <a className="mb-3" href="/">
                 become a retailer
+              </a>
+            </article>
+
+            <article className="flex flex-row items-center justify-start gap-4 mt-1">
+              <a className="mb-2" href="/">
+                <Facebook />
+              </a>
+              <a className="mb-2" href="/">
+                <Instagram />
+              </a>
+              <a className="mb-2" href="/">
+                <Youtube />
               </a>
             </article>
           </section>
@@ -99,17 +120,6 @@ export default function Footer() {
               <button className="text-base text-white w-[14dvw] bg-[#66776C] rounded-full py-2 px-2">
                 SEND
               </button>
-            </article>
-            <article className="flex flex-row items-center justify-start gap-4 mt-1">
-              <a className="mb-2" href="/">
-                <Facebook />
-              </a>
-              <a className="mb-2" href="/">
-                <Instagram />
-              </a>
-              <a className="mb-2" href="/">
-                <Youtube />
-              </a>
             </article>
           </section>
         </section>

@@ -60,11 +60,11 @@ export default function NavBar() {
       <div className="relative right-5 transform -translate-x-1/2">
         <Link href={"/cart"}>
           <Image src="/bag.svg" width={24} height={24} alt="Bag" />
-          <article className="flex justify-center absolute top-2 right-0 w-[0.7dvw] bg-green-900 border rounded-full">
-            {storedCart ? (
+          {storedCart.length > 0 ? (
+            <article className="flex justify-center absolute top-2 right-0 w-[0.7dvw] bg-green-900 border rounded-full">
               <p className="text-white text-[0.6rem]">{storedCart.length}</p>
-            ) : null}
-          </article>
+            </article>
+          ) : null}
         </Link>
       </div>
     </nav>
