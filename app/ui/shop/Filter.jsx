@@ -1,38 +1,45 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function Filter({ categories, initialFilters }) {
   const [filters, setFilters] = useState(initialFilters);
-
-  useEffect(() => {
-    setFilters(initialFilters);
-  }, [initialFilters]);
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
-    const updatedFilters = { ...filters, [name]: value };
-    setFilters(updatedFilters);
-    const searchParams = new URLSearchParams();
-
-    Object.entries(updatedFilters).forEach(([key, val]) => {
-      if (val) {
-        searchParams.set(key, val);
-      }
-    });
-
-    window.history.pushState(null, "", `?${searchParams.toString()}`);
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [name]: value,
+    }));
   };
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const newSearchParams = new URLSearchParams(searchParams.toString());
+
+      Object.entries(filters).forEach(([key, value]) => {
+        if (value) {
+          newSearchParams.set(key, value);
+        } else {
+          newSearchParams.delete(key);
+        }
+      });
+
+      router.push(`?${newSearchParams.toString()}`, { scroll: false });
+    }, 600);
+
+    return () => clearTimeout(timeout);
+  }, [filters, router, searchParams]);
 
   const handleClearFilter = (key) => {
     const updatedFilters = { ...filters, [key]: "" };
     setFilters(updatedFilters);
-    const searchParams = new URLSearchParams();
-    Object.entries(updatedFilters).forEach(([key, val]) => {
-      if (val) {
-        searchParams.set(key, val);
-      }
-    });
-    window.history.pushState(null, "", `?${searchParams.toString()}`);
+    const newSearchParams = new URLSearchParams(searchParams.toString());
+    newSearchParams.delete(key);
+
+    router.push(`?${newSearchParams.toString()}`, { scroll: false });
   };
 
   return (

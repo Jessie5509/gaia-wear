@@ -187,9 +187,8 @@ export async function fetchFilteredProducts(
   }
 
   try {
-    // Ejecutar la consulta
     const result = await sql.query<ProductTable>(query, values);
-    return result.rows; // Devuelve los productos filtrados, ahora con category_id y category_name
+    return result.rows;
   } catch (error) {
     console.error("Error ejecutando la consulta:", error);
     throw new Error("Failed to fetch filtered products.");

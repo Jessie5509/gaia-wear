@@ -20,8 +20,6 @@ export async function GET(request: Request) {
       }
       return NextResponse.json(product);
     }
-
-    // Obtener filtros desde la query string
     const filters = {
       category: searchParams.get("category") || "",
       color: searchParams.get("color") || "",
@@ -29,9 +27,6 @@ export async function GET(request: Request) {
       size: searchParams.get("size") || "",
       sort: searchParams.get("sort") || "",
     };
-    console.log("filters", filters);
-
-    // Si hay filtros, buscar productos filtrados
     if (Object.values(filters).some((val) => val)) {
       try {
         const filteredProducts = await fetchFilteredProducts(filters);
@@ -45,7 +40,6 @@ export async function GET(request: Request) {
       }
     }
 
-    // Si no hay filtros, devolver todos los productos
     const products = await fetchProducts();
     return NextResponse.json(products);
   } catch (error) {
