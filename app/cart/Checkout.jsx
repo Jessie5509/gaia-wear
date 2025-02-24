@@ -27,7 +27,7 @@ export default function Checkout() {
         </div>
       </section>
       <section className="px-3 py-3 m-3">
-        <button className="bg-green-900 text-white px-5 py-3 w-full min-h-fit rounded-md">
+        <button className="bg-primary text-white px-5 py-3 w-full min-h-fit rounded-md">
           Checkout
         </button>
       </section>

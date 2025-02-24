@@ -117,7 +117,7 @@ export default function Footer() {
                 signing up. Consent is not a condition of any purchase. Reply
                 HELP for help.
               </p>
-              <button className="text-base text-white w-[14dvw] bg-[#66776C] rounded-full py-2 px-2">
+              <button className="text-base text-white w-[14dvw] bg-primary rounded-full py-2 px-2">
                 SEND
               </button>
             </article>

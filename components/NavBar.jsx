@@ -61,7 +61,7 @@ export default function NavBar() {
         <Link href={"/cart"}>
           <Image src="/bag.svg" width={24} height={24} alt="Bag" />
           {storedCart.length > 0 ? (
-            <article className="flex justify-center absolute top-2 right-0 w-[0.7dvw] bg-green-900 border rounded-full">
+            <article className="flex justify-center absolute top-2 right-0 w-[0.7dvw] bg-primary border rounded-full">
               <p className="text-white text-[0.6rem]">{storedCart.length}</p>
             </article>
           ) : null}

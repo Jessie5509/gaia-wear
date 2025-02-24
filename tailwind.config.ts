@@ -12,17 +12,8 @@ const config: Config = {
         "13": "repeat(13, minmax(0, 1fr))",
       },
       colors: {
-        blue: {
-          400: "#2589FE",
-          500: "#0070F3",
-          600: "#2F6FEB",
-        },
-        green: {
-          400: "#8CA87C",
-        },
-        beige: {
-          400: "#F7F7F6",
-        },
+        primary: "#3E614A",
+        secondary: "#66776C",
       },
       backgroundImage: {
         card: "url('/model1.jpg')",
@@ -32,6 +23,7 @@ const config: Config = {
         "water-drop": "url('/water-drop.svg')",
         cloud: "url('/cloud.svg')",
         bag: "url('/bag.svg')",
+        close: "url('/close.svg')",
       },
     },
     keyframes: {

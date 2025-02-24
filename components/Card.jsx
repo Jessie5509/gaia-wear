@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Card({ data }) {
   return (
-    <main className="flex flex-row flex-wrap justify-center gap-3">
+    <main className="flex flex-row flex-wrap gap-3">
       {data.map((clo) => (
         <Link href={`/shop/${clo.id}`} key={clo.id}>
           <section
