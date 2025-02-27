@@ -22,7 +22,7 @@ export default function CartContainer() {
           </section>
         </>
       ) : (
-        <article className="flex flex-col items-center justify-center">
+        <article className="flex flex-col items-center justify-center pt-28">
           <header className="text-2xl font-semibold">
             Your cart is empty!
           </header>

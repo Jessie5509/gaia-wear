@@ -2,9 +2,10 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const links = [
-  { name: "New", href: "/new" },
+  { name: "New", href: "/#new" },
   {
     name: "Shop",
     href: "/shop",
@@ -16,6 +17,7 @@ const links = [
 export default function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [storedCart, setStoredCart] = useState([]);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,6 +35,17 @@ export default function NavBar() {
     };
   }, []);
 
+  const handleAnchorClick = (e, href) => {
+    if (pathname === "/" && href.startsWith("/#")) {
+      e.preventDefault();
+      const id = href.replace("/#", "");
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <nav
       className={`flex flex-row w-full bg-transparent fixed hover:bg-white items-center py-2 transition-colors duration-300 z-[1] ${
@@ -45,6 +58,7 @@ export default function NavBar() {
             <Link
               key={link.name}
               href={link.href}
+              onClick={(e) => handleAnchorClick(e, link.href)}
               className="flex h-[78px] items-center justify-center gap-2 bg-transparent text-sm uppercase text-black tracking-wider md:flex-none md:justify-start md:p-2 md:px-3"
             >
               <p className="hidden md:block">{link.name}</p>

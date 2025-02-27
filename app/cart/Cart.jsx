@@ -4,7 +4,6 @@ import CartItem from "./CartItem";
 
 export default function Cart() {
   const storedCart = JSON.parse(localStorage.getItem("usercart")) || [];
-  console.log("usercart", storedCart);
   return (
     <main>
       <section>

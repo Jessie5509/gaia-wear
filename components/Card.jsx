@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-export default function Card({ data }) {
+export default function Card({ prod }) {
   return (
     <main className="flex flex-row flex-wrap gap-3">
-      {data.map((clo) => (
+      {prod.map((clo) => (
         <Link href={`/shop/${clo.id}`} key={clo.id}>
           <section
             key={clo.id}

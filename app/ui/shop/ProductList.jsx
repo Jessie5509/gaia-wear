@@ -13,7 +13,7 @@ export default function ProductList({ data }) {
       <div className="flex flex-row mt-20">
         <section>
           <article className="flex flex-row items-center">
-            <Card data={data} />
+            <Card prod={data} />
           </article>
         </section>
       </div>

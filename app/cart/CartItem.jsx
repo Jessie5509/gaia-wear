@@ -1,15 +1,31 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import Image from "next/image";
+import Toast from "../../components/Toast";
 
 export default function CartItem({ item }) {
+  const [storedCart, setStoredCart] = useState([]);
+  const [not, setNot] = useState(false);
+
+  useEffect(() => {
+    const storedCart = JSON.parse(localStorage.getItem("usercart")) || [];
+    setStoredCart(storedCart);
+  }, []);
+
+  const deleteItem = () => {
+    const updatedCart = storedCart.filter((item) => item.id !== item.id);
+    localStorage.setItem("usercart", JSON.stringify(updatedCart));
+    setStoredCart(updatedCart);
+    setNot(true);
+  };
+
   return (
-    <article className="flex gap-4 w-full p-6 border rounded-2xl shadow-md mb-5">
+    <main className="flex gap-4 w-full p-6 border rounded-2xl shadow-md mb-5">
       <section className="min-w-[5dvw]">
         <Image
           src={item.image_url}
           width={80}
           height={120}
-          //   alt={item.name}
+          alt={item.name}
           className="bg-card bg-no-repeat bg-center bg-cover"
         />
       </section>
@@ -31,6 +47,13 @@ export default function CartItem({ item }) {
         <hr className="w-full" />
         <span>${item.total_price}</span>
       </section>
-    </article>
+      <section className="flex items-center">
+        <button
+          className="bg-trash bg-no-repeat bg-cover w-6 h-6"
+          onClick={deleteItem}
+        ></button>
+      </section>
+      {not ? <Toast text="Item deleted successfully." /> : null}
+    </main>
   );
 }
