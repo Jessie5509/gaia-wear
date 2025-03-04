@@ -10,7 +10,7 @@ const links = [
     name: "Shop",
     href: "/shop",
   },
-  { name: "Accessories", href: "/accessories" },
+  { name: "Accessories", href: "/shop?category=Accessories" },
   { name: "About", href: "/about" },
 ];
 

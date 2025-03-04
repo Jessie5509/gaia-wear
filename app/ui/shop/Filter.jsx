@@ -52,7 +52,10 @@ export default function Filter({ categories, initialFilters }) {
               key={key}
               className="w-fit border rounded-lg flex items-baseline justify-center bg-[#D9D9D5] px-1 py-1"
             >
-              <button className="flex items-baseline" onClick={() => handleClearFilter(key)}>
+              <button
+                className="flex items-baseline"
+                onClick={() => handleClearFilter(key)}
+              >
                 {value}
                 <p className="ml-1 bg-close bg-no-repeat bg-cover w-[0.6rem] h-[0.6rem]"></p>
               </button>
@@ -60,7 +63,7 @@ export default function Filter({ categories, initialFilters }) {
           ))}
       </article>
 
-      <section className="min-w-[15dvw] mx-5 mt-10">
+      <section className="min-w-[15dvw] max-w-fit mx-8 mt-10">
         <aside className="flex flex-col">
           <label htmlFor="Category">Categories</label>
           <hr />
