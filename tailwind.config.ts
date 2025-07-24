@@ -16,7 +16,6 @@ const config: Config = {
         secondary: "#66776C",
       },
       backgroundImage: {
-        card: "url('/model1.jpg')",
         "arrow-right": "url('/arrow-right-solid.svg')",
         "arrow-left": "url('/arrow-left-solid.svg')",
         trash: "url('/trash.svg')",

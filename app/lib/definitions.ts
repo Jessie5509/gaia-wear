@@ -2,11 +2,11 @@ export type Product = {
   id: number;
   name: string;
   description: string;
+  review: number;
   price: number;
   material: string;
   stock: number;
-  color: string;
-  size: string;
+  color: number;
   image_url: string;
 };
 
@@ -47,11 +47,12 @@ export type ProductTable = {
   id: number;
   name: string;
   description: string;
+  review: number;
   price: number;
   material: string;
   stock: number;
-  color: string;
-  size: string;
+  color: string[];
+  size: string[];
   image_url: string;
 };
 

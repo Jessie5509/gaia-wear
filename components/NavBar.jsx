@@ -52,7 +52,7 @@ export default function NavBar() {
         isScrolled ? "bg-white" : ""
       }`}
     >
-      <section className="flex grow items-center justify-start px-2">
+      <section className="flex grow items-center justify-start px-6">
         {links.map((link) => {
           return (
             <Link

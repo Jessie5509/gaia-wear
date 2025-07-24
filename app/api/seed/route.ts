@@ -11,11 +11,11 @@ async function seedProducts() {
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
+    review INT NOT NULL CHECK (review BETWEEN 1 AND 5),
     price INT NOT NULL,
     material VARCHAR(255) NOT NULL,
     stock INT NOT NULL,
-    color VARCHAR(255) NOT NULL,
-    size VARCHAR(255) NOT NULL,
+    color INT NOT NULL,
     image_url VARCHAR(255) NOT NULL
   );
 `;
@@ -23,8 +23,8 @@ async function seedProducts() {
   await Promise.all(
     products.map(
       (product) => sql`
-      INSERT INTO products (name, description, price, material, stock, color, size, image_url)
-      VALUES (${product.name}, ${product.description}, ${product.price}, ${product.material}, ${product.stock}, ${product.color}, ${product.size}, ${product.image_url})
+      INSERT INTO products (id, name, description, review, price, material, stock, color, image_url)
+      VALUES (${product.id}, ${product.name}, ${product.description}, ${product.review}, ${product.price}, ${product.material}, ${product.stock}, ${product.color}, ${product.image_url})
       ON CONFLICT (id) DO NOTHING;
     `
     )
@@ -43,8 +43,8 @@ async function seedCategories() {
   await Promise.all(
     categories.map(
       (category) => sql`
-        INSERT INTO categories (name, description)
-        VALUES (${category.name}, ${category.description})
+        INSERT INTO categories (id, name, description)
+        VALUES (${category.id}, ${category.name}, ${category.description})
         ON CONFLICT (id) DO NOTHING;
       `
     )

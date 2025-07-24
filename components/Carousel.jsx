@@ -66,7 +66,7 @@ export default function Carousel({ products }) {
   return (
     <main>
       <section>
-        <article className="flex justify-between gap-6 px-6 py-10 font-main">
+        <article className="flex justify-between gap-6 px-8 py-10 font-main">
           <h3 className="text-2xl">
             <strong>NEW & TRENDING </strong>handpicked must-haves for your
             wardrobe
@@ -88,7 +88,7 @@ export default function Carousel({ products }) {
         </article>
       </section>
       <section
-        className={`transition-all relative max-w-[99dvw] overflow-hidden px-6 ${
+        className={`transition-all relative max-w-[99dvw] overflow-hidden px-8 ${
           isDragging ? "cursor-grabbing" : "cursor-default"
         }`}
         onMouseDown={handleMouseDown}

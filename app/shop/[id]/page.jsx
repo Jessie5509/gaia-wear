@@ -1,11 +1,15 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import AddToCartButton from '../../cart/AddToCartButton'
+import AddToCartButton from "../../cart/AddToCartButton";
 
 export default async function CardDetails({ params }) {
   const response = await fetch(
-    `${process.env.URL}/api/products?id=${params.id}`
+    `${process.env.URL}/api/products?id=${params.id}`,
+    {
+      cache: "no-store",
+    }
   );
+
   if (!response.ok) {
     return notFound();
   }
@@ -19,14 +23,13 @@ export default async function CardDetails({ params }) {
           width={540}
           height={860}
           alt={product.name}
-          className="bg-card bg-no-repeat bg-center bg-cover"
+          className="bg-no-repeat bg-center bg-cover"
         />
       </section>
       <section className="flex flex-col max-w-xl min-h-fit">
         <article className="flex flex-row justify-between">
-        <h1 className="text-2xl font-bold mb-5">{product.name}</h1>
-        <span className="text-2xl">${product.price}</span>
-
+          <h1 className="text-2xl font-bold mb-5">{product.name}</h1>
+          <span className="text-2xl">${product.price}</span>
         </article>
         <p>reviews</p>
         <p className="mb-5">{product.description}</p>
@@ -38,7 +41,7 @@ export default async function CardDetails({ params }) {
         <span>{product.material}</span>
         <span>{product.category_name}</span>
         <article className="flex justify-center mt-5">
-           <AddToCartButton product={product} />
+          <AddToCartButton product={product} />
         </article>
       </section>
     </main>
