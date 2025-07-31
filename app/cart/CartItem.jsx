@@ -32,10 +32,7 @@ export default function CartItem({ item }) {
       <section className="flex flex-col min-w-[10dvw] max-w-2xl min-h-fit">
         <h1 className="text-lg font-bold mb-3">{item.name}</h1>
         <hr className="w-full" />
-        <span>{item.color}</span>
-        <article className="bg-black w-3 h-3 rounded-full"></article>
-        <span>${item.price}</span>
-        <span>{item.size}</span>
+        <p className="max-w-60">{item.description}</p>
       </section>
       <section className="flex flex-col items-center min-w-[10dvw]">
         <h1 className="text-lg font-bold mb-3">Quantity</h1>

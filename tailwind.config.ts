@@ -23,6 +23,7 @@ const config: Config = {
         cloud: "url('/cloud.svg')",
         bag: "url('/bag.svg')",
         close: "url('/close.svg')",
+        star: "url('/star.svg')",
       },
     },
     keyframes: {

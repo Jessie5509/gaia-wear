@@ -12,7 +12,7 @@ export default function CartContainer() {
   }, []);
 
   return (
-    <main className="pt-32 min-h-screen">
+    <main className="pt-32 min-h-screen p-6 mx-20 mt-32 gap-20 shadow-xl bg-[#f6f6f6] rounded-lg">
       {storedCart.length > 0 ? (
         <>
           <header className="text-5xl flex justify-center">Checkout</header>

@@ -18,11 +18,11 @@ export default function Checkout() {
           <article>Shipping:</article>
           <article>$14</article>
         </div>
-        <hr className="mx-5 my-5"/>
+        <hr className="mx-5 my-5" />
         <div className="flex flex-row justify-between">
           <strong>Total:</strong>
           <h2>
-            USD <strong>${subTotal + 14}</strong>
+            USD <strong>{subTotal + 14}</strong>
           </h2>
         </div>
       </section>
