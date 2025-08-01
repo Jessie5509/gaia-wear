@@ -14,11 +14,11 @@ export default function Footer() {
   return (
     <footer className="bg-gray-400 flex flex-col justify-between">
       <main className="p-7 my-10">
-        <section className="flex flex-row justify-around">
+        <section className="flex flex-row max-sm:flex-col max-sm:justify-center max-sm:text-center justify-around">
           <section className="flex flex-col">
             <span className="font-extrabold mb-5">Support</span>
             <hr />
-            <article className="flex flex-col items-start mt-8">
+            <article className="flex flex-col items-start mt-8 max-sm:items-center">
               <a className="mb-3" href="/">
                 contact
               </a>
@@ -41,7 +41,7 @@ export default function Footer() {
                 FAQ
               </a>
             </article>
-            <article className="flex justify-center">
+            <article className="flex justify-center max-sm:items-center">
               <Image
                 src="/footer/dark-logo.svg"
                 width={100}
@@ -54,7 +54,7 @@ export default function Footer() {
           <section className="flex flex-col">
             <span className="font-extrabold mb-5">Company</span>
             <hr />
-            <article className="flex flex-col items-start mt-8">
+            <article className="flex flex-col items-start mt-8 max-sm:items-center">
               <a className="mb-3" href="/">
                 about us
               </a>
@@ -78,7 +78,7 @@ export default function Footer() {
               </a>
             </article>
 
-            <article className="flex flex-row items-center justify-start gap-4 mt-1">
+            <article className="flex flex-row items-center justify-start gap-4 mt-1 max-sm:justify-center max-sm:mb-10">
               <a className="mb-2" href="/">
                 <Facebook />
               </a>
@@ -91,7 +91,7 @@ export default function Footer() {
             </article>
           </section>
 
-          <section className="flex flex-col max-w-[14dvw]">
+          <section className="flex flex-col max-w-[14dvw] max-sm:max-w-none">
             <span className="font-extrabold mb-5">Connect</span>
             <hr />
             <article className="mt-8">
@@ -103,12 +103,12 @@ export default function Footer() {
               <input
                 type="text"
                 placeholder="Email address"
-                className="border-solid mb-2 border-gray-500 w-[14dvw]"
+                className="border-solid mb-2 border-gray-500 w-[14dvw] max-sm:w-full"
               />
               <input
                 type="number"
                 placeholder="US phone number"
-                className="border-solid mb-2 border-gray-500 w-[14dvw]"
+                className="border-solid mb-2 border-gray-500 w-[14dvw] max-sm:w-full"
               />
               <p className="text-xs mt-2">
                 By submitting this form, you agree to receive recurring
@@ -117,7 +117,7 @@ export default function Footer() {
                 signing up. Consent is not a condition of any purchase. Reply
                 HELP for help.
               </p>
-              <button className="text-base text-white w-[14dvw] bg-primary rounded-full py-2 px-2">
+              <button className="text-base text-white w-[14dvw] bg-primary rounded-full py-2 px-2 max-sm:w-[20dvw] max-sm:mt-5">
                 SEND
               </button>
             </article>
@@ -133,7 +133,7 @@ export default function Footer() {
         <Visa />
       </section>
       <hr />
-      <section className="flex justify-center w-full h-5 my-5">
+      <section className="flex justify-center w-full h-5 my-5 max-sm:items-center max-sm:justify-center max-sm:m-6 max-sm:max-w-fit max-sm:text-center">
         <article>
           © {currentYear}. All Rights Reserved. Privacy Policy & Copyright
           Policy. Terms and Conditions.

@@ -5,10 +5,10 @@ import Image from "next/image";
 export default function AboutUs() {
   return (
     <main className="mt-40">
-      <section className="flex flex-row justify-center w-full">
-        <article className="max-w-[50dvw]">
-          <header className="text-2xl mx-10">We're GAIA WEAR</header>
-          <header className="text-6xl m-10 mt-2">
+      <section className="flex flex-row justify-center w-full max-sm:flex-col">
+        <article className="max-w-[50dvw] max-sm:max-w-fit">
+          <header className="text-2xl mx-10 max-sm:text-center">We're GAIA WEAR</header>
+          <header className="text-6xl m-10 mt-2 max-sm:text-center">
             We Believe Big Change Starts Small.
           </header>
           <p className="max-w-[100dvw] mx-10">
@@ -53,7 +53,7 @@ export default function AboutUs() {
             height={1279}
             alt="Nature"
           />
-          <article className="flex flex-row justify-center gap-8 my-10">
+          <article className="flex flex-row justify-center gap-8 my-10 max-sm:gap-16">
             <div className="flex flex-col items-center max-w-[8dvw] text-pretty text-center">
               <span className="font-medium text-2xl">100M+</span>
               <span>Trees planted to date</span>

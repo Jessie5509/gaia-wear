@@ -67,7 +67,7 @@ export default function Carousel({ products }) {
     <main>
       <section>
         <article className="flex justify-between gap-6 px-8 py-10 font-main">
-          <h3 className="text-2xl">
+          <h3 className="text-2xl max-sm:text-xl">
             <strong>NEW & TRENDING </strong>handpicked must-haves for your
             wardrobe
           </h3>

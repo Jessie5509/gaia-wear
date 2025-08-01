@@ -32,7 +32,7 @@ export default async function CardDetails({ params }) {
   const productColor = colors.find((c) => c.num === product.color);
 
   return (
-    <main className="flex justify-center min-h-screen p-6 m-20 mt-32 gap-20 shadow-xl bg-[#f6f6f6] rounded-lg">
+    <main className="flex justify-center min-h-screen p-6 m-20 mt-32 gap-20 shadow-xl bg-[#f6f6f6] rounded-lg max-sm:flex-col max-sm:gap-0 max-sm:m-0 max-sm:mt-32">
       <section>
         <Image
           src={product.image_url}
@@ -43,7 +43,7 @@ export default async function CardDetails({ params }) {
           className="bg-no-repeat bg-center bg-cover rounded-md"
         />
       </section>
-      <section className="flex flex-col max-w-xl min-h-fit">
+      <section className="flex flex-col max-w-xl min-h-fit max-sm:mt-6 max-sm:mb-16">
         <article className="flex flex-row justify-between">
           <h1 className="text-2xl font-bold mb-5">{product.name}</h1>
           <span className="text-2xl">${product.price}</span>

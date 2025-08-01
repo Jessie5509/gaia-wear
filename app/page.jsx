@@ -16,10 +16,10 @@ export default async function Home() {
     <main className="flex min-h-screen flex-col">
       <section className="flex shrink-0">
         <Image src="/home.jpeg" width={1920} height={1137} alt="Banner" />
-        <div className="absolute bottom-0 w-[55dvw] p-8">
+        <div className="absolute bottom-0 w-[55dvw] p-8 max-sm:w-full max-sm:bottom-[24rem]">
           <article className="flex flex-col text-white font-main">
-            <h1 className="text-9xl">Nature's Touch</h1>
-            <span className="text-xl text-pretty w-[45dvw]">
+            <h1 className="text-9xl max-sm:text-7xl">Nature's Touch</h1>
+            <span className="text-xl text-pretty w-[45dvw] max-sm:w-full">
               Mother Nature knows best. We took a page from her book when
               crafting these ultra-comfy, textured pieces with natural, durable,
               and kind-to-the-planet materials.
@@ -31,12 +31,12 @@ export default async function Home() {
         <Carousel products={firstTenProducts} />
       </section>
       <section className="bg-beige-400">
-        <header className="text-center text-5xl m-10">
+        <header className="text-center text-5xl m-10 max-sm:m-5 max-sm:text-4xl">
           How Our Garments Heal Mother Earth
         </header>
-        <div className="flex justify-center items-center flex-row m-10">
-          <article className="flex flex-col w-[60rem] m-10">
-            <h3 className="text-3xl text-black mb-4">
+        <div className="flex justify-center items-center flex-row m-10 max-sm:flex-col max-sm:m-5">
+          <article className="flex flex-col w-[60rem] m-10 max-sm:w-full max-sm:m-0 max-sm:items-center">
+            <h3 className="text-3xl text-black mb-4 max-sm:text-2xl">
               Sustainability = Transparency
             </h3>
             <p className="text-lg text-black">
