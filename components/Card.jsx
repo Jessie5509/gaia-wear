@@ -18,27 +18,30 @@ export default function Card({ prod }) {
   ];
 
   return (
-    <main className="flex flex-row flex-wrap gap-3">
+    <main className="flex flex-row flex-wrap gap-3 max-sm:w-full">
       {prod.map((clo) => {
         const productColor = colors.find((c) => c.num === clo.color);
 
         return (
           <Link href={`/shop/${clo.id}`} key={clo.id}>
             <section
-              className="shadow group flex flex-col justify-end w-[17dvw] h-[50dvh] bg-no-repeat bg-center bg-cover max-sm:w-fit"
+              className="shadow group flex flex-col justify-end w-[17dvw] h-[50dvh] bg-no-repeat bg-center bg-cover max-sm:w-full"
               style={{ backgroundImage: `url(${clo.image_url})` }}
             >
               <div className="opacity-0 transform translate-y-6 transition-all duration-1000 group-hover:opacity-100 group-hover:translate-y-0 flex flex-col items-center details-card p-4">
-                <span>${clo.price}.00</span>
-                <article className="flex flex-row items-center">
-                  <p
-                    className="w-6 h-6 rounded-full mr-2"
-                    style={{ backgroundColor: productColor?.HEX }}
-                  ></p>
-                  <h1>{productColor?.name ?? "Color unknown"}</h1>
+                <article className="flex flex-col justify-center items-center">
+                  <strong className="mb-2">{clo.name}</strong>
+                  <span className="mb-1">${clo.price}.00</span>
+                  <article className="flex flex-row items-center mb-1">
+                    <p
+                      className="w-6 h-6 rounded-full mr-2"
+                      style={{ backgroundColor: productColor?.HEX }}
+                    ></p>
+                    <h1>{productColor?.name ?? "Color unknown"}</h1>
+                  </article>
+                  <span className="mb-1">{clo.size}</span>
+                  <span>M</span>
                 </article>
-                <span>{clo.size}</span>
-                <span>M</span>
               </div>
             </section>
           </Link>

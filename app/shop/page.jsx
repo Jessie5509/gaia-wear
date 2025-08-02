@@ -23,7 +23,7 @@ export default async function ShopPage({ searchParams }) {
   return (
     <main className="min-h-[100dvh] mt-32">
       <header className="text-5xl text-center">Meet the Product</header>
-      <section className="flex flex-row">
+      <section className="flex flex-row max-sm:flex-col">
         <Filter categories={categories} initialFilters={initialFilters} />
         <Suspense fallback={<SkeletonShop cardsNumber={8} />}>
           <ProductList searchP={searchParams} />

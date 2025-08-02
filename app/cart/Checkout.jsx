@@ -7,7 +7,7 @@ export default function Checkout() {
     return acu + i.total_price;
   }, 0);
   return (
-    <main className="flex flex-col justify-center w-[20dvw] h-fit px-5 border rounded-2xl shadow-lg">
+    <main className="flex flex-col justify-center w-[20dvw] h-fit px-5 border rounded-2xl shadow-lg max-sm:w-full">
       <section className="px-6 py-6">
         <header className="text-center mb-5">Order Summary</header>
         <div className="flex flex-row justify-between">

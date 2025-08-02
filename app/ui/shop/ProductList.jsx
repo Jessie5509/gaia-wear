@@ -28,7 +28,7 @@ export default async function ProductList({ searchP }) {
 
   return (
     <section className="min-h-screen">
-      <div className="flex flex-row mt-20">
+      <div className="flex flex-row mt-20 max-sm:mt-10 max-sm:flex-col max-sm:w-full">
         <section>
           <Pagination items={products} />
         </section>

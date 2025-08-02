@@ -19,7 +19,7 @@ export default function CartItem({ item }) {
   };
 
   return (
-    <main className="flex gap-4 w-full p-6 border rounded-2xl shadow-md mb-5">
+    <main className="flex gap-4 w-full p-6 border rounded-2xl shadow-md mb-5 max-sm:flex-col max-sm:items-center">
       <section className="min-w-[5dvw]">
         <Image
           src={item.image_url}

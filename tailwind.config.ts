@@ -24,6 +24,8 @@ const config: Config = {
         bag: "url('/bag.svg')",
         close: "url('/close.svg')",
         star: "url('/star.svg')",
+        filter: "url('/filter.svg')",
+        navbars: "url('/bars.svg')",
       },
     },
     keyframes: {

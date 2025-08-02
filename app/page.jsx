@@ -16,10 +16,10 @@ export default async function Home() {
     <main className="flex min-h-screen flex-col">
       <section className="flex shrink-0">
         <Image src="/home.jpeg" width={1920} height={1137} alt="Banner" />
-        <div className="absolute bottom-0 w-[55dvw] p-8 max-sm:w-full max-sm:bottom-[24rem]">
+        <div className="absolute bottom-0 w-[55dvw] p-8 max-sm:w-full max-sm:bottom-[32rem]">
           <article className="flex flex-col text-white font-main">
-            <h1 className="text-9xl max-sm:text-7xl">Nature's Touch</h1>
-            <span className="text-xl text-pretty w-[45dvw] max-sm:w-full">
+            <h1 className="text-9xl max-sm:text-3xl">Nature's Touch</h1>
+            <span className="text-xl text-pretty w-[45dvw] max-sm:w-full max-sm:text-base">
               Mother Nature knows best. We took a page from her book when
               crafting these ultra-comfy, textured pieces with natural, durable,
               and kind-to-the-planet materials.
